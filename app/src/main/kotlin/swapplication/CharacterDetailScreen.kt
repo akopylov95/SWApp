@@ -35,12 +35,12 @@ fun CharacterDetailScreen(
     }
 }
 
-@Composable
-fun CharacterInfo(character: StarWarsCharacter) {
-    Column(modifier = Modifier.padding(16.dp)) {
-        Text(text = "Name: ${character.name}", style = MaterialTheme.typography.bodyLarge)
-        Text(text = "Height: ${character.height} cm", style = MaterialTheme.typography.bodyLarge)
-        Text(text = "Mass: ${character.mass} kg", style = MaterialTheme.typography.bodyLarge)
-        Text(text = "Gender: ${character.gender}", style = MaterialTheme.typography.bodyLarge)
-    }
-}
+//@Composable
+//fun CharacterInfo(character: StarWarsCharacter) {
+//    Column(modifier = Modifier.padding(16.dp)) {
+//        Text(text = "Name: ${character.name}", style = MaterialTheme.typography.bodyLarge)
+//        Text(text = "Height: ${character.height} cm", style = MaterialTheme.typography.bodyLarge)
+//        Text(text = "Mass: ${character.mass} kg", style = MaterialTheme.typography.bodyLarge)
+//        Text(text = "Gender: ${character.gender}", style = MaterialTheme.typography.bodyLarge)
+//    }
+//}

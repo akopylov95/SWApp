@@ -12,9 +12,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppNavHost()
-//            PeopleListScreen { characterId ->
-//                CharacterDetailScreen(characterId)
-//            }
         }
     }
 }

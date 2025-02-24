@@ -3,8 +3,6 @@ package swapplication
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.ktor.client.call.body
-import io.ktor.client.request.get
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
