@@ -78,4 +78,7 @@ dependencies {
 
     // Flow + MVI
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
+
+    // Navigation
+    implementation ("androidx.navigation:navigation-compose:2.8.7")
 }

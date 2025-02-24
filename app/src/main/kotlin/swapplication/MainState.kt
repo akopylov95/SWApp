@@ -5,3 +5,4 @@ data class MainState(
     val isLoading: Boolean = false, // Флаг загрузки
     val error: String? = null // Ошибка при загрузке
 )
+
