@@ -11,6 +11,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(viewModel: MainViewModel = viewModel()) {
+    //val apiService = ApiService()
+    //val viewModel: MainViewModel = viewModel(factory = MainViewModelFactory(apiService))
+
     val state by viewModel.state.collectAsState()
 
     LaunchedEffect(Unit) {
