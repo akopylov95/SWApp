@@ -101,18 +101,6 @@ fun CharacterInfo(character: StarWarsCharacter, characterId: String) {
     }
 }
 
-//@Composable
-//fun CharacterInfo(character: StarWarsCharacter, characterId: String) {
-//    Column(modifier = Modifier.padding(16.dp)) {
-//        AssetImage("$characterId.jpg")
-//        InfoRow("Name", character.name)
-//        Text(text = "Name: ${character.name}", style = MaterialTheme.typography.bodyLarge)
-//        Text(text = "Height: ${character.height} cm", style = MaterialTheme.typography.bodyLarge)
-//        Text(text = "Mass: ${character.mass} kg", style = MaterialTheme.typography.bodyLarge)
-//        Text(text = "Gender: ${character.gender}", style = MaterialTheme.typography.bodyLarge)
-//    }
-//}
-
 @Composable
 fun InfoRow(label: String, value: String) {
     Row(
