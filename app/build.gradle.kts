@@ -75,10 +75,16 @@ dependencies {
     implementation("io.ktor:ktor-client-serialization:2.3.5")
     implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
     implementation("io.ktor:ktor-client-content-negotiation:2.3.5")
+    implementation("io.ktor:ktor-server-content-negotiation:2.3.5")
 
     // Flow + MVI
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
 
     // Navigation
     implementation ("androidx.navigation:navigation-compose:2.8.7")
+
+    implementation ("androidx.core:core-ktx:1.12.0")
+
+    //Coil
+    implementation("io.coil-kt:coil-compose:2.3.0")
 }
