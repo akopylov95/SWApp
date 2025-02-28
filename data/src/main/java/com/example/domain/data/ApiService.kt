@@ -1,11 +1,12 @@
-package swapplication
+package com.example.domain.data
 
-import android.util.Log
-import io.ktor.client.*
-import io.ktor.client.call.*
-import io.ktor.client.request.*
-import io.ktor.client.engine.cio.*
+import com.example.domain.data.entity.StarWarsCharacter
+import com.example.domain.data.entity.StarWarsPeople
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.request.get
 import io.ktor.client.statement.HttpResponse
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
@@ -27,14 +28,15 @@ class ApiService {
 
     suspend fun fetchCharacterById(id: String): StarWarsCharacter {
         val url = "$BASE_URL$ENDPOINT/$id/"
-        Log.i("MyApp composable(ID2)", url )
+        println("MyApp fetchCharacterById(ID2) = $url")
         val response: HttpResponse = client.get(url)
         return response.body()
     }
 
     suspend fun fetchPeopleList(): StarWarsPeople {
         val url = "$BASE_URL$ENDPOINT"
-        Log.i("MyApp API", client.get(url).body())
+        val response: HttpResponse = client.get(url).body()
+        println("MyApp fetchPeopleList = ${response}")
         return client.get(url).body()
     }
 }

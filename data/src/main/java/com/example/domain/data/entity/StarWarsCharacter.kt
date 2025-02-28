@@ -1,4 +1,4 @@
-package swapplication
+package com.example.domain.data.entity
 
 import kotlinx.serialization.Serializable
 
@@ -9,5 +9,5 @@ data class StarWarsCharacter(
     val mass: String,
     val gender: String,
     val url: String
-)
+) // TODO move to data layer
 

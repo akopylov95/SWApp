@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "SWApp"
 include(":app")
+include(":data")
+include(":domain")
