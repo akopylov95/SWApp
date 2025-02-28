@@ -1,13 +1,12 @@
-package swapplication
+package swapplication.navigation
 
-import CharacterDetailScreen
-import PeopleListScreen
+import swapplication.ui.screen.CharacterDetailScreen
+import swapplication.ui.screen.PeopleListScreen
 import android.util.Log
 import androidx.compose.runtime.*
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.*
-import io.ktor.client.call.body
-import io.ktor.client.request.get
+import swapplication.ui.viewmodel.CharacterDetailViewModel
 
 @Composable
 fun AppNavHost() {
