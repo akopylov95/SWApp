@@ -39,6 +39,34 @@ android {
         compose = true
     }
 }
+// Jetpack Compose
+val compose = "1.7.8"
+val material3 = "1.3.1"
+val lifecycleViewModel = "2.8.7"
+
+// Coroutines
+val coroutines = "1.7.3"
+
+// Serialization
+val serialization = "1.6.0"
+
+// Ktor Client
+val ktor = "2.3.5"
+
+// Flow + MVI
+val lifecycleRuntime = "2.6.2"
+
+// Navigation
+val navigation = "2.8.7"
+
+// Core KTX
+val coreKtx = "1.12.0"
+
+// Coil
+val coil = "2.3.0"
+
+//Koin
+val koin = "4.0.1"
 
 dependencies {
 
@@ -50,6 +78,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(project(":domain"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -59,32 +88,41 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Jetpack Compose
-    implementation("androidx.compose.ui:ui:1.5.4")
-    implementation("androidx.compose.material3:material3:1.1.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation("androidx.compose.ui:ui:${compose}")
+    implementation("androidx.compose.material3:material3:${material3}")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:${lifecycleViewModel}")
 
     // Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutines}")
 
     // Serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${serialization}")
 
     // Ktor Client
-    implementation("io.ktor:ktor-client-core:2.3.5")
-    implementation("io.ktor:ktor-client-cio:2.3.5")
-    implementation("io.ktor:ktor-client-serialization:2.3.5")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
-    implementation("io.ktor:ktor-client-content-negotiation:2.3.5")
-    implementation("io.ktor:ktor-server-content-negotiation:2.3.5")
+    implementation("io.ktor:ktor-client-core:${ktor}")
+    implementation("io.ktor:ktor-client-cio:${ktor}")
+    implementation("io.ktor:ktor-client-serialization:${ktor}")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:${ktor}")
+    implementation("io.ktor:ktor-client-content-negotiation:${ktor}")
+    implementation("io.ktor:ktor-server-content-negotiation:${ktor}")
 
     // Flow + MVI
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:${lifecycleRuntime}")
 
     // Navigation
-    implementation ("androidx.navigation:navigation-compose:2.8.7")
+    implementation("androidx.navigation:navigation-compose:${navigation}")
 
-    implementation ("androidx.core:core-ktx:1.12.0")
+    // Core KTX
+    implementation("androidx.core:core-ktx:${coreKtx}")
 
-    //Coil
-    implementation("io.coil-kt:coil-compose:2.3.0")
+    // Coil
+    implementation("io.coil-kt:coil-compose:${coil}")
+
+    //Koin
+    implementation("io.insert-koin:koin-android:${koin}")
+    implementation("io.insert-koin:koin-androidx-compose:${koin}")
+    implementation("io.insert-koin:koin-core:${koin}")
+
+    implementation(project(":domain"))
+    implementation(project(":data"))
 }
