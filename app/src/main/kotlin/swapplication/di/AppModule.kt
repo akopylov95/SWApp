@@ -8,14 +8,12 @@ import swapplication.ui.viewmodel.CharacterDetailViewModel
 import swapplication.ui.viewmodel.PeopleListViewModel
 
 val appModule = module {
-    // UseCases
-    single { GetPeopleUseCase(get()) }
-    single { GetCharacterByIdUseCase(get()) }
 
     // ViewModels
     viewModel { PeopleListViewModel(get()) }
     viewModel { CharacterDetailViewModel(get()) }
 
+    // UseCase зависимости
     factory { GetPeopleUseCase(get()) }
     factory { GetCharacterByIdUseCase(get()) }
 }

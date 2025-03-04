@@ -2,31 +2,28 @@ package swapplication.navigation
 
 import swapplication.ui.screen.CharacterDetailScreen
 import swapplication.ui.screen.PeopleListScreen
-import android.util.Log
 import androidx.compose.runtime.*
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.*
+import org.koin.androidx.compose.koinViewModel
 import swapplication.ui.viewmodel.CharacterDetailViewModel
+import swapplication.ui.viewmodel.PeopleListViewModel
 
 @Composable
 fun AppNavHost() {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = "peopleList") {
-        Log.i("MyLog111", "Попали в navigation")
         composable("peopleList") {
-            Log.i("MyLog111", "Попали в пипл лист скрин")
-            PeopleListScreen { characterId ->
-                Log.i("MyLog111", "Получили ИД: ${characterId}" )
+            val viewModel: PeopleListViewModel = koinViewModel()
+            PeopleListScreen(viewModel = viewModel) { characterId ->
                 navController.navigate("characterDetail/$characterId")
-                Log.i("MyApp composable(ID)", characterId )
 
             }
         }
 
         composable("characterDetail/{characterId}") { backStackEntry ->
             val characterId = backStackEntry.arguments?.getString("characterId") ?: return@composable
-            val viewModel: CharacterDetailViewModel = viewModel()
+            val viewModel: CharacterDetailViewModel = koinViewModel()
             CharacterDetailScreen( characterId = characterId, viewModel = viewModel)
         }
     }

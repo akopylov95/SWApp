@@ -22,8 +22,8 @@ class CharacterDetailViewModel(
     val state: StateFlow<CharacterDetailState> = _state
 
     fun loadCharacter(characterId: String) {
+        _state.value = CharacterDetailState(isLoading = true)
         viewModelScope.launch {
-            _state.value = CharacterDetailState(isLoading = true)
             try {
                 val character = getCharacterByIdUseCase(characterId)
                 Log.i("MyApp", "load character = $character")

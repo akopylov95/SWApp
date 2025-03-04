@@ -1,6 +1,5 @@
 package swapplication.ui.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.entity.StarWarsCharacter
@@ -21,9 +20,7 @@ class PeopleListViewModel (
     val state: StateFlow<PeopleListState> = _state
 
     init {
-        Log.i("MyLog111", "Попали во вью модель")
         loadPeople()
-        Log.i("MyLog111", "Загрузили вью модель")
     }
 
     private fun loadPeople() {
