@@ -1,8 +1,10 @@
-package swapplication
+package swapplication.ui.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.domain.entity.StarWarsCharacter
+import com.example.domain.usecase.GetCharacterByIdUseCase
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -12,16 +14,18 @@ data class CharacterDetailState(
     val error: String? = null
 )
 
-class CharacterDetailViewModel : ViewModel() {
-    private val apiService = ApiService()
+class CharacterDetailViewModel(
+    private val getCharacterByIdUseCase: GetCharacterByIdUseCase
+) : ViewModel() {
+
     private val _state = MutableStateFlow(CharacterDetailState())
     val state: StateFlow<CharacterDetailState> = _state
 
-    fun loadCharacter(id: String) {
+    fun loadCharacter(characterId: String) {
+        _state.value = CharacterDetailState(isLoading = true)
         viewModelScope.launch {
-            _state.value = CharacterDetailState(isLoading = true)
             try {
-                val character = apiService.fetchCharacterById(id)
+                val character = getCharacterByIdUseCase(characterId)
                 Log.i("MyApp", "load character = $character")
                 _state.value = CharacterDetailState(character = character, isLoading = false)
             } catch (e: Exception) {
@@ -30,3 +34,4 @@ class CharacterDetailViewModel : ViewModel() {
         }
     }
 }
+

@@ -1,4 +1,4 @@
-package swapplication
+package com.example.domain.entity
 
 import kotlinx.serialization.Serializable
 

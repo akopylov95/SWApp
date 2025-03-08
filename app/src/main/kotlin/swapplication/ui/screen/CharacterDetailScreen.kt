@@ -1,26 +1,26 @@
+package swapplication.ui.screen
+
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import swapplication.CharacterDetailViewModel
-import swapplication.StarWarsCharacter
+import com.example.swapp.R
+import swapplication.ui.viewmodel.CharacterDetailViewModel
+import com.example.domain.entity.StarWarsCharacter
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -48,42 +48,15 @@ fun CharacterDetailScreen(
             }
         }
     } else if (state.error != null) {
-        Text(text = "Ошибка: ${state.error}")
+        Text(text = "${R.string.app_error} : ${state.error}")
     } else {
         state.character?.let { character ->
-//            TopAppBar(title= { Text("People", fontSize = 22.sp, color = Color.White)},
-//                navigationIcon = {
-//                    IconButton(onClick = { backDispatcher?.onBackPressed() }) {
-//                        Icon(
-//                            imageVector = Icons.Filled.ArrowBack,
-//                            tint = Color.White,
-//                            contentDescription = "Localized description"
-//
-//                        )
-//                    }
-//                },)
-
             Scaffold(
                 topBar = {
                     CenterAlignedTopAppBar(
                         title = {
-//                            Box(modifier = Modifier
-//                                .fillMaxWidth()
-//                                .background(Color.Black),
-//                                contentAlignment = Alignment.Center)
-//                            {
-//                                Text(
-//                                    text = "Character",
-//                                    color = Color.White,
-//                                    fontSize = 24.sp,
-//                                    fontWeight = FontWeight.Bold,
-//                                    modifier = Modifier
-//                                        .padding(bottom = 16.dp)
-//
-//                                )
-//                            }
                             Text(
-                                text = "Character",
+                                text = stringResource(R.string.character),
                                 color = Color.White,
                                 fontSize = 24.sp,
                                 fontWeight = FontWeight.Bold,
@@ -118,8 +91,6 @@ fun CharacterDetailScreen(
                     CharacterInfo(character, characterId)
                 }
             }
-
-            //CharacterInfo(character, characterId)
         }
     }
 }
@@ -160,7 +131,6 @@ fun CharacterInfo(character: StarWarsCharacter, characterId: String) {
                     modifier = Modifier
                         .height(520.dp)
                         .width(360.dp)
-                        //.size(360.dp)
                         .clip(RoundedCornerShape(8.dp)),
                 )
 
